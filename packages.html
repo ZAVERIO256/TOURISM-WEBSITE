@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages - Msafiri Tours</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;overflow-x:hidden}
+  body{font-family:Arial,sans-serif;background:#fff}
+
+  /* ===== HEADER - LIKE YOUR SCREENSHOT ===== */
+  .site-header{width:100%;background:#fff;padding:12px 3%;border-bottom:1px solid #eee}
+  .header-inner{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;max-width:1300px;margin:0 auto}
+  .logo{color:#000;text-decoration:none;line-height:1;flex-shrink:0}
+  .logo-small{display:block;color:#ff8c00;font-size:13px;font-weight:800;letter-spacing:5px;margin-bottom:2px}
+  .logo-main{display:block;font-size:30px;font-weight:900;line-height:1}
+  .logo-main .black{color:#000}
+  .logo-main .orange{color:#ff8c00}
+  .logo-line{display:block;width:45px;height:3px;background:#ff8c00;margin:5px 0 5px 2px}
+  .logo-sub{display:block;color:#666;font-size:12px;letter-spacing:3px;font-weight:500}
+  .main-nav{display:flex;flex-direction:row;gap:8px;align-items:center}
+  .main-nav a{color:#000;font-size:17px;font-weight:700;text-decoration:none;white-space:nowrap;padding:0 4px 6px 4px}
+  .main-nav a.active{color:#ff8c00;border-bottom:2px solid #ff8c00}
+  .header-search{display:flex;align-items:center;flex-shrink:0}
+  .header-search form{display:flex;align-items:center;background:#f2f2f2;border:1px solid #ddd;border-radius:30px;overflow:hidden;height:38px}
+  .header-search input{border:none;outline:none;background:transparent;padding:0 14px;font-size:14px;width:210px;color:#333}
+  .header-search input::placeholder{color:#777}
+  .header-search button{border:none;background:#ff8c00;color:#fff;height:38px;width:42px;font-size:18px;cursor:pointer}
+
+  /* ===== SECTION 2 - FULL SCREEN, NO BLACK SPACE ===== */
+  .packages-hero{
+    position:relative;
+    width:100vw;
+    height:calc(100vh - 92px); /* Full screen minus header */
+    min-height:520px;
+    overflow:hidden;
+    background:#000;
+    margin:0;
+    padding:0;
+  }
+  .pkg-slider{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+  }
+  .pkg-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+  }
+  .pkg-slide.active{opacity:1}
+  .pkg-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover; /* fills full screen, no bars */
+    object-position:center;
+    display:block;
+  }
+  .pkg-watermark{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;
+    color:#fff;font-size:48px;text-align:center;white-space:nowrap;
+    text-shadow:0 2px 20px rgba(0,0,0,.7);pointer-events:none;width:100%;padding:0 20px;
+  }
+
+  @media(max-width:900px){
+    .header-inner{flex-wrap:wrap;justify-content:center;text-align:center}
+    .main-nav{gap:12px;flex-wrap:wrap;justify-content:center}
+    .main-nav a{font-size:15px}
+    .header-search input{width:150px}
+    .logo-main{font-size:24px}
+    .packages-hero{height:calc(100vh - 140px);min-height:340px}
+    .pkg-watermark{font-size:24px;white-space:normal;line-height:1.3}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SECTION 1: HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-small">EXPLORE</span>
+      <span class="logo-main"><span class="black">SAFARI</span> <span class="orange">&amp; CITY</span></span>
+      <span class="logo-line"></span>
+      <span class="logo-sub">THE PEARL OF AFRICA</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="packages.html" class="active">Packages</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="header-search">
+      <form action="#" onsubmit="return false;">
+        <input type="text" placeholder="Search safaris, gorillas, Nile..">
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SECTION 2: FULL SCREEN SLIDER ===== -->
+<section class="packages-hero">
+  <div class="pkg-slider">
+    <div class="pkg-slide active"><img src="images/tourists.jpg" alt="Tourists in Uganda"></div>
+    <div class="pkg-slide"><img src="images/monkey.jpg" alt="Monkey"></div>
+    <div class="pkg-slide"><img src="images/Elephant.jpg" alt="Elephant"></div>
+    <div class="pkg-slide"><img src="images/buffalo.jpg" alt="Buffalo"></div>
+    <div class="pkg-slide"><img src="images/van.jpg" alt="Safari Van"></div>
+    <div class="pkg-watermark">EXPERIENTIAL TOURS TO UGANDA</div>
+  </div>
+</section>
+
+<script>
+  const pkgSlides = document.querySelectorAll('.pkg-slide');
+  let pkgIndex = 0;
+  setInterval(() => {
+    pkgSlides[pkgIndex].classList.remove('active');
+    pkgIndex = (pkgIndex + 1) % pkgSlides.length;
+    pkgSlides[pkgIndex].classList.add('active');
+  }, 4000);
+</script>
+
+<!-- ===== SECTION 3: PACKAGES TABLE ===== -->
+<section class="packages-section">
+  <div class="pkg-container">
+
+    <div class="pkg-header">
+      <span class="pkg-eyebrow">EXPLORE SAFARI & CITY</span>
+      <h2>Available Travel Packages</h2>
+      <p>Choose your adventure. Prices are per person for solo travellers, and total for a couple travelling together.</p>
+    </div>
+
+    <!-- CATEGORY PILLS - FROM YOUR SCREENSHOT -->
+    <div class="pkg-categories">
+      <button class="cat-btn active">Safaris & Tours</button>
+      <button class="cat-btn">Weekend Getaway</button>
+      <button class="cat-btn">Cultural Tours</button>
+      <button class="cat-btn">Adventure Tours</button>
+      <button class="cat-btn">Wellness Tours</button>
+      <button class="cat-btn">Camping Tours</button>
+      <button class="cat-btn">Special Interest</button>
+      <button class="cat-btn">Volunteering</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="pkg-table">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Duration</th>
+            <th>Highlights</th>
+            <th>Per Individual</th>
+            <th>Per Couple</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="pkg-badge hot">MOST POPULAR</span>
+              <strong>Gorilla Trekking - Bwindi</strong>
+              <span class="pkg-sub">Safaris & Tours</span>
+            </td>
+            <td><strong>3 Days</strong><span class="pkg-sub">2 Nights</span></td>
+            <td>Gorilla permit, Bwindi Forest, Lake Bunyonyi</td>
+            <td class="price">$1,450</td>
+            <td class="price couple">$2,600 <span>Save $300</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Murchison Falls Safari</strong>
+              <span class="pkg-sub">Safaris & Tours</span>
+            </td>
+            <td><strong>3 Days</strong><span class="pkg-sub">2 Nights</span></td>
+            <td>Nile cruise, Big 5, Top of Falls hike</td>
+            <td class="price">$980</td>
+            <td class="price couple">$1,750 <span>Save $210</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Queen Elizabeth Wildlife</strong>
+              <span class="pkg-sub">Safaris & Tours</span>
+            </td>
+            <td><strong>4 Days</strong><span class="pkg-sub">3 Nights</span></td>
+            <td>Tree-climbing lions, Kazinga Channel, Chimp trek</td>
+            <td class="price">$1,120</td>
+            <td class="price couple">$1,990 <span>Save $250</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Weekend Getaway - Jinja</strong>
+              <span class="pkg-sub">Weekend Getaway</span>
+            </td>
+            <td><strong>2 Days</strong><span class="pkg-sub">1 Night</span></td>
+            <td>Source of Nile, White-water rafting, Sunset cruise</td>
+            <td class="price">$380</td>
+            <td class="price couple">$650 <span>Save $110</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Cultural Tour - Fort Portal</strong>
+              <span class="pkg-sub">Cultural Tours</span>
+            </td>
+            <td><strong>3 Days</strong><span class="pkg-sub">2 Nights</span></td>
+            <td>Tooro Kingdom, Crater lakes, Coffee experience</td>
+            <td class="price">$520</td>
+            <td class="price couple">$920 <span>Save $120</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="pkg-badge adv">ADVENTURE</span>
+              <strong>Rwenzori Hiking</strong>
+              <span class="pkg-sub">Adventure Tours</span>
+            </td>
+            <td><strong>5 Days</strong><span class="pkg-sub">4 Nights</span></td>
+            <td>Mountains of the Moon, Guides & porters, Park fees</td>
+            <td class="price">$1,250</td>
+            <td class="price couple">$2,250 <span>Save $250</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Wellness Retreat - Ssese Islands</strong>
+              <span class="pkg-sub">Wellness Tours</span>
+            </td>
+            <td><strong>4 Days</strong><span class="pkg-sub">3 Nights</span></td>
+            <td>Beach resort, Spa, Yoga, Lake Victoria</td>
+            <td class="price">$720</td>
+            <td class="price couple">$1,280 <span>Save $160</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <strong>Camping Tour - Kidepo Valley</strong>
+              <span class="pkg-sub">Camping Tours</span>
+            </td>
+            <td><strong>5 Days</strong><span class="pkg-sub">4 Nights</span></td>
+            <td>Remote wilderness, Karamojong culture, Game drives</td>
+            <td class="price">$890</td>
+            <td class="price couple">$1,590 <span>Save $190</span></td>
+            <td><a href="contact.html" class="book-btn">Book Now</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pkg-note">* Prices include transport, accommodation, park fees & guide. Gorilla permit included where stated. <a href="contact.html">Design Your Own Tour →</a></p>
+
+  </div>
+</section>
+<!-- ===== END SECTION 3 ===== -->
+
+<!-- ===== SECTION 4: BANNER - banner.jpg ===== -->
+<section class="banner-section">
+  <img src="images/banner.jpg" alt="Explore Safari & City - Elephants in Uganda - The Pearl of Africa">
+</section>
+<!-- ===== END SECTION 4 ===== -->
+
+<!-- ===== SECTION 5: BOOKING FORM ===== -->
+<section class="booking-section">
+  <div class="booking-box">
+    <div class="booking-left">
+      <span class="booking-eyebrow">BOOK YOUR SAFARI</span>
+      <h2>Plan Your Trip to <span>Uganda</span></h2>
+      <p>Fill this form and we will reply on WhatsApp / Email within 1 hour with availability & best price.</p>
+      <ul class="booking-list">
+        <li>✅ Free itinerary planning</li>
+        <li>✅ No payment until you confirm</li>
+        <li>✅ Gorilla permits secured for you</li>
+      </ul>
+      <p class="booking-phone">📞 WhatsApp: <b>+256 701 303 855</b></p>
+    </div>
+
+    <form class="booking-form" action="contact.html" onsubmit="return false;">
+      <label>Your Name *</label>
+      <input type="text" placeholder="e.g. John Kato" required>
+
+      <label>Phone / WhatsApp *</label>
+      <input type="tel" placeholder="+256 ..." required>
+
+      <div class="form-row">
+        <div>
+          <label>Travel Date *</label>
+          <input type="date" required>
+        </div>
+        <div>
+          <label>How Many People? *</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>1 Person - Solo</option>
+            <option>2 People - Couple</option>
+            <option>3 - 5 People - Family / Group</option>
+            <option>6+ People - Big Group</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Choose Package *</label>
+      <select required>
+        <option value="">Select Package...</option>
+        <option>Gorilla Trekking - Bwindi - 3 Days - $1,450</option>
+        <option>Murchison Falls Safari - 3 Days - $980</option>
+        <option>Queen Elizabeth Wildlife - 4 Days - $1,120</option>
+        <option>Weekend Getaway - Jinja - 2 Days - $380</option>
+        <option>Cultural Tour - Fort Portal - 3 Days - $520</option>
+        <option>Rwenzori Hiking - 5 Days - $1,250</option>
+        <option>Wellness Retreat - Ssese Islands - 4 Days - $720</option>
+        <option>Camping Tour - Kidepo Valley - 5 Days - $890</option>
+        <option>Design My Own Tour</option>
+      </select>
+
+      <label>Message (Optional)</label>
+      <textarea rows="3" placeholder="Tell us what you want - hotel type, budget, special requests..."></textarea>
+
+      <button type="submit" class="booking-btn">Check Availability →</button>
+      <p class="booking-small">We reply fast on WhatsApp. No spam.</p>
+    </form>
+  </div>
+</section>
+<!-- ===== END SECTION 5 ===== -->
+
+<!-- ===== SECTION 6: WHY CHOOSE US ===== -->
+<section class="why-section">
+  <div class="why-inner">
+    <span class="why-eyebrow">WHY CHOOSE US</span>
+    <h2>Why Travel With <span>Explore Safari & City?</span></h2>
+    <p class="why-sub">We are local. We know Uganda like home. You get the real Pearl of Africa, not a tourist trap.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🦍</div>
+        <h3>Local Expert Guides</h3>
+        <p>Ugandan guides who grew up near the parks. They know where gorillas, lions & elephants hide.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Best Price, No Hidden Fees</h3>
+        <p>Transport, park fees, accommodation & guide included. What we quote is what you pay.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Safe & Trusted</h3>
+        <p>Licensed drivers, clean safari vans, 24/7 support on your trip. Your safety is first.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⭐</div>
+        <h3>Custom-Made Trips</h3>
+        <p>Gorillas + Nile + Culture in one trip? We build your perfect itinerary around your dates & budget.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== END SECTION 6 ===== -->
+
+<!-- ===== SECTION 7: TESTIMONIALS - SLIDER - 10 PEOPLE ===== -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <span class="testi-eyebrow">HAPPY TRAVELLERS</span>
+    <h2>What Our Guests Say</h2>
+    <p class="testi-sub">Real reviews from real travellers who explored Uganda with us.</p>
+
+    <div class="testi-slider-wrap">
+      <button class="testi-arrow prev" onclick="moveTesti(-1)">‹</button>
+
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+
+          <!-- PERSON 1 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic1.jpg" alt="Amber N">
+              <div><b>Amber N</b><span>1 year ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Our group of 4 had an amazing safari trip going to the rhino sanctuary and Murchison Falls National Park. Our driver, George, was phenomenal! There were times I could not watch...</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 2 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic2.jpg" alt="Ali S">
+              <div><b>ali s</b><span>1 year ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">The best tour ever. We had the best trip with visits to a number of beautiful places... customer care was very good and the tour guides were friendly hospitable.</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 3 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic3.jpg" alt="Trip2944">
+              <div><b>Trip29446739851</b><span>1 year ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Holiday festivities. We had a wonderful time together. All activities were planned carefully. Drivers were on time and very friendly. We had a lovely tour of the city...</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 4 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic4.jpg" alt="Sarah">
+              <div><b>Sarah & James</b><span>8 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Seeing gorillas in Bwindi was a dream come true. Everything was organised, permits, hotel, transport. Best trip of our lives!</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 5 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic5.jpg" alt="David">
+              <div><b>David M.</b><span>6 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Murchison Falls + Nile cruise was perfect. Clean van, driver on time, we saw all Big 5. Highly recommend Explore Safari & City!</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 6 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic6.jpg" alt="Amina">
+              <div><b>Amina & Yusuf</b><span>5 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">We booked Jinja weekend for our honeymoon. Rafting, sunset cruise, lovely hotel. They made everything so easy for us.</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 7 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic7.jpg" alt="Grace">
+              <div><b>Grace K.</b><span>4 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Queen Elizabeth was beautiful! Tree-climbing lions, Kazinga Channel boat, chimp trek. Our guide knew everything. Thank you!</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 8 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic8.jpg" alt="Michael">
+              <div><b>Michael O.</b><span>3 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">I did Rwenzori hiking 5 days. Tough but amazing. Guides and porters were strong and kind. I will come back again.</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 9 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic9.jpg" alt="Emma">
+              <div><b>Emma L.</b><span>2 months ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Ssese Islands wellness retreat was so peaceful. Beach, spa, yoga, Lake Victoria sunset. Perfect break from the city.</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+          <!-- PERSON 10 -->
+          <div class="testi-card">
+            <div class="testi-top">
+              <img src="images/pic10.jpg" alt="John">
+              <div><b>John P.</b><span>1 month ago</span></div>
+              <div class="trip-badge">●</div>
+            </div>
+            <div class="testi-circles">●●●●● ✔</div>
+            <p class="testi-text">Kidepo Valley camping was wild and remote. Karamojong culture, game drives, stars at night. Best adventure in Uganda!</p>
+            <span class="read-more">Read more</span>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="testi-arrow next" onclick="moveTesti(1)">›</button>
+    </div>
+    <p class="testi-dots" id="testiDots"></p>
+  </div>
+</section>
+<!-- ===== END SECTION 7 ===== -->
+
+<script>
+// ===== PACKAGES PAGE - FINAL JAVA - PASTE BEFORE </body> =====
+
+// 1. PACKAGES SLIDER - already works, keep it
+// (you already have it at top, don't duplicate)
+
+// 2. CATEGORY PILLS
+document.addEventListener("DOMContentLoaded", function () {
+  const catBtns = document.querySelectorAll('.cat-btn');
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      catBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // 3. BOOKING FORM -> WhatsApp +256 701 303 855
+  const bookingForm = document.querySelector('.booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = bookingForm.querySelector('input[type="text"]').value;
+      const phone = bookingForm.querySelector('input[type="tel"]').value;
+      const date = bookingForm.querySelector('input[type="date"]').value;
+      const people = bookingForm.querySelectorAll('select')[0].value;
+      const pkg = bookingForm.querySelectorAll('select')[1].value;
+      if (!name || !phone || !date || !people || !pkg) {
+        alert('Please fill Name, Phone, Date, People and Package.');
+        return;
+      }
+      const message = "Hello Explore Safari & City!%0A%0AName: " + encodeURIComponent(name) +
+        "%0APhone: " + encodeURIComponent(phone) +
+        "%0ADate: " + encodeURIComponent(date) +
+        "%0APeople: " + encodeURIComponent(people) +
+        "%0APackage: " + encodeURIComponent(pkg);
+      window.open("https://wa.me/256701303855?text=" + message, "_blank");
+    });
+  }
+
+  // 4. SEARCH - filter table
+  const searchInput = document.querySelector('.header-search input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const text = this.value.toLowerCase();
+      const rows = document.querySelectorAll('.pkg-table tbody tr');
+      rows.forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(text) ? '' : 'none';
+      });
+    });
+  }
+});
+
+// 5. TESTIMONIALS SLIDER - MUST BE OUTSIDE - THIS WAS MISSING
+let testiPos = 0;
+function moveTesti(dir) {
+  const track = document.getElementById('testiTrack');
+  if (!track) return;
+  const cards = track.children.length;
+  const visible = window.innerWidth <= 900 ? 1 : (window.innerWidth <= 1100 ? 2 : 3);
+  const maxPos = cards - visible;
+  testiPos += dir;
+  if (testiPos < 0) testiPos = maxPos;
+  if (testiPos > maxPos) testiPos = 0;
+  const cardWidth = track.children[0].offsetWidth + 18;
+  track.style.transform = 'translateX(' + (-testiPos * cardWidth) + 'px)';
+}
+setInterval(function() { moveTesti(1); }, 4000);
+</script>
+<!-- ===== SECTION 8: FOOTER - LAST SECTION ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <!-- COL 1: LOGO + ABOUT -->
+    <div class="footer-col">
+      <a href="index.html" class="footer-logo">
+        <span class="explore-small">EXPLORE</span>
+        <span class="safari-big">SAFARI <span>&amp; CITY</span></span>
+        <span class="pearl-small">THE PEARL OF AFRICA</span>
+      </a>
+      <p class="footer-about">We are a local Ugandan tour company. Gorillas, Big 5, Nile, Culture & City tours — built by people who call Uganda home.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" title="Facebook">f</a>
+        <a href="https://instagram.com" target="_blank" title="Instagram">◎</a>
+        <a href="https://tiktok.com" target="_blank" title="TikTok">♪</a>
+        <a href="https://wa.me/256701303855" target="_blank" title="WhatsApp">✆</a>
+        <a href="https://youtube.com" target="_blank" title="YouTube">▶</a>
+      </div>
+    </div>
+
+    <!-- COL 2: QUICK LINKS -->
+    <div class="footer-col footer-middle">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="packages.html">Packages & Prices</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="packages.html">Gorilla Trekking</a></li>
+        <li><a href="packages.html">Murchison Falls Safari</a></li>
+      </ul>
+
+      <h4 class="footer-h4-space">TOP PACKAGES</h4>
+      <ul>
+        <li><a href="packages.html">Gorilla Trekking - $1,450</a></li>
+        <li><a href="packages.html">Murchison Falls - $980</a></li>
+        <li><a href="packages.html">Jinja Getaway - $380</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3: CONTACT + WHATSAPP -->
+    <div class="footer-col footer-right">
+      <h4>CONTACT US</h4>
+
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div><b>Kampala, Uganda</b><br>Plot 12, Kampala Road<br>The Pearl of Africa</div>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <div><b>+256 701 303 855</b><br><a href="https://wa.me/256701303855">Chat on WhatsApp →</a></div>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <div><b>info@exploresafariandcity.com</b><br>We reply within 1 hour</div>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-icon">🕐</span>
+        <div><b>Open Daily</b><br>7:00 AM - 9:00 PM EAT</div>
+      </div>
+
+      <a href="packages.html" class="btn-book-now">Book Your Safari →</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Explore Safari & City. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+    <p>Made with ❤️ in Uganda - The Pearl of Africa</p>
+  </div>
+</footer>
+<!-- ===== END SECTION 8 - FOOTER ===== -->
+
+<script src="script.js"></script>
+</body>
+</html>

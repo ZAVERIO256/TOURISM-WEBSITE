@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Safari & City Tours | Explore Uganda - The Pearl of Africa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== SECTION 1: HEADER - CORRECTED + PROFESSIONAL ===== -->
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-small">EXPLORE</span>
+    <span class="logo-main">SAFARI <span class="logo-orange">& CITY</span></span>
+    <span class="logo-line"></span>
+    <span class="logo-sub">THE PEARL OF AFRICA</span>
+  </a>
+
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="packages.html">Packages</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+
+  <div class="header-right">
+    <form class="search-bar" action="packages.html" method="get">
+      <input type="text" name="search" placeholder="Search safaris, gorillas, Nile...">
+      <button type="submit">🔍</button>
+    </form>
+    <span class="menu-icon">☰</span>
+  </div>
+</header>
+<!-- ===== END SECTION 1 ===== -->
+
+<!-- ===== SECTION 2: HERO SLIDER - FIXED ===== -->
+<section class="hero">
+  <div class="slide active"><img src="images/slide1.jpg" alt="Rwenzori Mountains"></div>
+  <div class="slide"><img src="images/slide2.jpg" alt="Mountain Gorilla"></div>
+  <div class="slide"><img src="images/slide3.jpg" alt="Source of the Nile"></div>
+
+  <!-- Text is OUTSIDE slides now - 1 block only, JS changes the words -->
+  <div class="hero-text">
+    <h1 id="heroTitle">EXPLORE SAFARI & CITY<br>THE PEARL OF AFRICA</h1>
+    <p id="heroSub">Your adventure starts here. Discover gorillas, mountains, culture and the Nile.</p>
+    <a href="packages.html" class="btn">Explore More</a>
+  </div>
+
+  <button class="prev" id="heroPrev">❮</button>
+  <button class="next" id="heroNext">❯</button>
+</section>
+<!-- ===== END SECTION 2 ===== -->
+
+<!-- ===== SECTION 3: PREMIER TOURISM EXPERIENCES ===== -->
+<section class="premier">
+  <h2>Premier Tourism <span class="orange-title">Experiences</span></h2>
+  <p class="section-sub">Uganda is a land of breathtaking landscapes, rich wildlife, and vibrant cultures. From the misty mountains to the source of the Nile, every journey is unforgettable.</p>
+</section>
+<!-- ===== END SECTION 3 ===== -->
+
+<!-- ===== SECTION 4: 3 EXPERIENCE CARDS - CORRECTED IMAGES ===== -->
+<section class="experiences">
+  <div class="experiences-grid">
+
+    <div class="card">
+      <img src="images/mountain-gorilla-trekking.jpg" alt="Mountain Gorilla Trekking">
+      <h3>Mountain Gorilla Trekking</h3>
+      <p>UNESCO World Heritage site experience. Trek through Bwindi Impenetrable Forest to meet endangered mountain gorillas in their natural habitat.</p>
+      <a href="packages.html" class="btn">Explore More ✈</a>
+    </div>
+
+    <div class="card">
+      <img src="images/adventure-experiences.jpg" alt="Adventure Experiences">
+      <h3>Adventure Experiences</h3>
+      <p>From rafting the Nile to hiking the Rwenzori Mountains, bungee jumping, zip-lining, Uganda is an adventurer's paradise; thrilling experiences await at every turn.</p>
+      <a href="packages.html" class="btn">Explore More ✈</a>
+    </div>
+
+    <div class="card">
+      <img src="images/cultural-heritage-tours.jpg" alt="Cultural Heritage Tours">
+      <h3>Cultural Heritage Tours</h3>
+      <p>Immerse yourself in Uganda's rich cultural tapestry. Visit traditional kingdoms, experience vibrant dances, and discover ancient traditions.</p>
+      <a href="packages.html" class="btn">Explore More ✈</a>
+    </div>
+
+  </div>
+</section>
+<!-- ===== END SECTION 4 ===== -->
+
+<!-- ===== SECTION 5: AFCON 2027 ===== -->
+<section class="afcon">
+  <div class="afcon-left">
+    <h2>Uganda is Ready</h2>
+    <h3>AFCON 2027</h3>
+    <p>Uganda, Kenya and Tanzania will host AFCON 2027. Experience football, culture and tourism in the Pearl of Africa.</p>
+    <p>Come for the football, stay for the safari, the gorillas, the mountains and the people.</p>
+    <a href="packages.html" class="btn">Explore AFCON Packages</a>
+  </div>
+  <div class="afcon-right">
+    <video controls poster="images/slide1.jpg">
+      <source src="videos/afcon.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="video-title">AFCON 2027 - Uganda is Ready</p>
+    <p class="video-sub">Watch the journey to Africa's biggest football festival.</p>
+  </div>
+</section>
+<!-- ===== END SECTION 5 ===== -->
+
+<!-- ===== SECTION 6: VIDEO WITH WATERMARK ===== -->
+<section class="video-banner">
+  <div class="video-wrap">
+    <video autoplay muted loop playsinline poster="images/slide2.jpg">
+      <source src="videos/uganda.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-watermark">
+      <h2>EXPLORE UGANDA</h2>
+      <p>The Pearl of Africa</p>
+      <button class="play-btn">▶</button>
+    </div>
+  </div>
+</section>
+<!-- ===== END SECTION 6 ===== -->
+
+<!-- ===== SECTION 7: ABOUT SAFARI & CITY UG LTD - CORRECTED ===== -->
+<section class="about-utb">
+  <h2>About <span class="orange-title">Safari & City UG Ltd</span></h2>
+  <p>Safari & City UG Ltd is a Ugandan-owned tour and travel company based in Kampala. We create authentic safari, city, culture and adventure experiences across Uganda — from gorilla trekking in Bwindi, to hiking the Rwenzoris, to rafting the Nile and exploring the vibrant streets of Kampala.</p>
+  <p style="margin-top:12px;">Our team of professional guides, drivers and travel experts ensures every trip is safe, well-planned, affordable and unforgettable — for solo travellers, families, groups and corporate clients.</p>
+
+  <div class="about-grid">
+    <div class="about-box">
+      <div class="about-icon">🎯</div>
+      <h3>OUR VISION</h3>
+      <p>To be Uganda's most trusted travel brand — known for unforgettable safaris, excellent city tours and world-class customer care.</p>
+    </div>
+
+    <div class="about-box">
+      <div class="about-icon">🚀</div>
+      <h3>OUR MISSION</h3>
+      <p>To provide safe, affordable and authentic safari and city experiences that showcase the beauty of Uganda while supporting local communities.</p>
+    </div>
+
+    <div class="about-box">
+      <div class="about-icon">💎</div>
+      <h3>OUR CORE VALUES</h3>
+      <p>Professionalism, Integrity, Teamwork, Innovativeness, Sustainability and Customer First — in every trip we plan.</p>
+    </div>
+  </div>
+</section>
+<!-- ===== END SECTION 7 ===== -->
+
+<!-- ===== SECTION 8: SERVICE STANDARDS FEEDBACK + OUR PARTNERS ===== -->
+<section class="feedback-partners">
+  <div class="feedback">
+    <h2>Service Standards Feedback</h2>
+    <p>Your feedback matters. Share your challenges and help us serve you better.</p>
+    <a href="contact.html" class="btn btn-orange">Service Feedback Form 👁</a>
+  </div>
+
+  <div class="partners">
+    <h2>Our Partners</h2>
+    <div class="partners-grid">
+      <img src="images/partner-auto.jpg" alt="Association of Uganda Tour Operators">
+      <img src="images/partner-uia.jpg" alt="Uganda Investment Authority - UIA">
+      <img src="images/partner-uwa.jpg" alt="Uganda Wildlife Authority - UWA">
+      <img src="images/partner-uwec.jpg" alt="Uganda Wildlife Conservation Education Centre - UWEC">
+      <img src="images/partner-ministry-tourism.jpg" alt="Ministry of Tourism">
+      <img src="images/partner-uhoa.jpg" alt="Uganda Hotel Owners Association - UHOA">
+    </div>
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+</section>
+<!-- ===== END SECTION 8 ===== -->
+
+<!-- ===== FOOTER - NEW DESIGN LIKE SCREENSHOT ===== -->
+<footer class="site-footer-new">
+  <div class="footer-grid-new">
+
+    <!-- COL 1 -->
+    <div class="footer-col-new">
+      <a href="index.html" class="footer-logo-new">
+        <span class="explore-small">E X P L O R E</span>
+        <span class="safari-big">SAFARI <span>&</span></span>
+        <span class="safari-big">CITY <span class="pearl-inline">THE PEARL OF AFRICA</span></span>
+      </a>
+      <p class="footer-about-new">We are a local Ugandan tour company. Gorillas, Big 5, Nile, Culture & City tours — built by people who call Uganda home.</p>
+      <div class="footer-social-new">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="TikTok">♪</a>
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="footer-col-new footer-middle-new">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="packages.html">Packages & Prices</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+      <h4 class="footer-h4-space">TOP PACKAGES</h4>
+      <ul>
+        <li><a href="packages.html">Gorilla Trekking - $1,450</a></li>
+        <li><a href="packages.html">Murchison Falls - $980</a></li>
+        <li><a href="packages.html">Jinja Getaway - $380</a></li>
+      </ul>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="footer-col-new">
+      <h4>CONTACT US</h4>
+      <p class="contact-line"><span>📍</span> Plot 12, Kampala Road,<br>&nbsp;&nbsp;&nbsp;&nbsp;Kampala, Uganda</p>
+      <p class="contact-line"><span>📞</span> <a href="tel:+256701303855">+256 701 303 855</a></p>
+      <p class="contact-line"><span>✉️</span> <a href="mailto:info@exploresafariandcity.com">info@exploresafariandcity.com</a></p>
+      <p class="contact-line"><span>🕒</span> Open Daily 7:00 AM - 9:00 PM</p>
+
+      <a href="https://wa.me/256701303855?text=Hello!%20I%20want%20to%20book%20my%20safari" target="_blank" class="btn-book-safari">Book Your Safari →</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-new">
+    <p>© 2026 Explore Safari & City. All Rights Reserved. &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="#">Terms</a></p>
+    <p>Made with ❤️ in Uganda</p>
+  </div>
+</footer>
+<!-- ===== END SECTION 9 ===== -->
+
+<script>
+const slides = document.querySelectorAll('.hero .slide');
+const titles = [
+  {h:"EXPLORE SAFARI & CITY<br>THE PEARL OF AFRICA", p:"Your adventure starts here. Discover gorillas, mountains, culture and the Nile."},
+  {h:"THE PRIMATE CAPITAL<br>OF THE WORLD", p:"Meet endangered mountain gorillas in Bwindi Impenetrable Forest."},
+  {h:"THE SOURCE OF<br>THE NILE", p:"Rafting, culture and adventure await at every turn."}
+];
+let idx = 0, timer;
+function show(n){
+  if(n>=slides.length) idx=0; else if(n<0) idx=slides.length-1; else idx=n;
+  slides.forEach((s,i)=> s.style.display = (i===idx) ? 'block' : 'none');
+  document.getElementById('heroTitle').innerHTML = titles[idx].h;
+  document.getElementById('heroSub').textContent = titles[idx].p;
+}
+function start(){ clearInterval(timer); timer=setInterval(()=>show(idx+1),4000); }
+document.getElementById('heroNext').addEventListener('click', ()=>{ show(idx+1); start(); });
+document.getElementById('heroPrev').addEventListener('click', ()=>{ show(idx-1); start(); });
+show(0); start();
+document.querySelector('.menu-icon').addEventListener('click', ()=>{ document.querySelector('nav').classList.toggle('show'); });
+</script>
+</body>
+</html>

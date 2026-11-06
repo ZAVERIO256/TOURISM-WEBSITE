@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Explore Safari & City</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;overflow-x:hidden}
+  body{font-family:Arial,sans-serif;background:#fff}
+
+  /* ===== HEADER - SAME AS PACKAGES ===== */
+  .site-header{width:100%;background:#fff;padding:12px 3%;border-bottom:1px solid #eee}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1300px;margin:0 auto}
+  .logo{color:#000;text-decoration:none;line-height:1;flex-shrink:0}
+  .logo-small{display:block;color:#ff8c00;font-size:13px;font-weight:800;letter-spacing:5px;margin-bottom:2px}
+  .logo-main{display:block;font-size:30px;font-weight:900;line-height:1}
+  .logo-main .black{color:#000}
+  .logo-main .orange{color:#ff8c00}
+  .logo-line{display:block;width:45px;height:3px;background:#ff8c00;margin:5px 0 5px 2px}
+  .logo-sub{display:block;color:#666;font-size:12px;letter-spacing:3px;font-weight:500}
+  .main-nav{display:flex;gap:8px;align-items:center}
+  .main-nav a{color:#000;font-size:17px;font-weight:700;text-decoration:none;white-space:nowrap;padding:0 4px 6px 4px}
+  .main-nav a.active{color:#ff8c00;border-bottom:2px solid #ff8c00}
+  .header-search{display:flex;align-items:center;flex-shrink:0}
+  .header-search form{display:flex;align-items:center;background:#f2f2f2;border:1px solid #ddd;border-radius:30px;overflow:hidden;height:38px}
+  .header-search input{border:none;outline:none;background:transparent;padding:0 14px;font-size:14px;width:210px}
+  .header-search button{border:none;background:#ff8c00;color:#fff;height:38px;width:42px;font-size:18px;cursor:pointer}
+
+  /* ===== HERO - CONTACT ===== */
+  .contact-hero{position:relative;width:100%;height:340px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;text-align:center}
+  .contact-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6}
+  .contact-hero-text{position:relative;z-index:2;color:#fff;padding:0 20px}
+  .contact-hero-text h1{font-size:44px;line-height:1.1;text-shadow:0 2px 15px rgba(0,0,0,.7)}
+  .contact-hero-text p{font-size:17px;margin-top:12px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+  .contact-hero-text span{color:#ff8c00}
+
+  /* ===== CONTACT SECTION ===== */
+  .contact-section{padding:50px 3%;background:#f8f8f8}
+  .contact-box{max-width:1150px;margin:0 auto;display:flex;gap:30px;align-items:stretch}
+  .contact-left{flex:1;background:#0a2a5e;color:#fff;padding:35px;border-radius:16px}
+  .contact-left h2{font-size:30px;line-height:1.2;margin:10px 0 12px}
+  .contact-left h2 span{color:#ff8c00}
+  .contact-left p{color:#ddd;font-size:15px;line-height:1.6}
+  .contact-item{display:flex;gap:12px;align-items:flex-start;margin-top:22px}
+  .contact-icon{width:44px;height:44px;min-width:44px;background:#ff8c00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+  .contact-item b{display:block;font-size:16px}
+  .contact-item span{color:#ddd;font-size:14px}
+  .contact-item a{color:#fff;text-decoration:none}
+  .whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:15px;border-radius:30px;font-weight:800;margin-top:28px;font-size:16px}
+  .whatsapp-btn:hover{background:#1da851}
+  .contact-hours{margin-top:22px;background:rgba(255,255,255,.12);padding:14px;border-radius:10px;font-size:14px;line-height:1.7}
+
+  .contact-form-wrap{flex:1.2;background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .contact-form-wrap h3{font-size:22px;margin-bottom:6px}
+  .contact-form-wrap p{color:#777;font-size:14px;margin-bottom:18px}
+  .contact-form{display:flex;flex-direction:column;gap:8px}
+  .contact-form label{font-weight:700;font-size:14px;margin-top:6px}
+  .contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:15px;font-family:Arial;outline:none}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#ff8c00}
+  .form-row{display:flex;gap:12px}
+  .form-row div{flex:1}
+  .send-btn{background:#ff8c00;color:#fff;border:none;padding:15px;border-radius:30px;font-weight:800;font-size:16px;cursor:pointer;margin-top:12px}
+  .send-btn:hover{background:#e67e00}
+  .form-small{text-align:center;color:#888;font-size:13px;margin-top:6px}
+
+  /* ===== MAP ===== */
+  .map-section{padding:0;background:#fff;line-height:0}
+  .map-section iframe{width:100%;height:380px;border:0;display:block}
+
+  /* ===== FAQ QUICK ===== */
+  .faq-section{padding:50px 3%;background:#fff;text-align:center}
+  .faq-inner{max-width:900px;margin:0 auto}
+  .faq-section h2{font-size:30px;margin-bottom:25px}
+  .faq-section h2 span{color:#ff8c00}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left}
+  .faq-card{background:#f8f8f8;padding:20px;border-radius:12px}
+  .faq-card b{display:block;margin-bottom:6px}
+  .faq-card p{color:#666;font-size:14px;line-height:1.6}
+
+  /* ===== FOOTER ===== */
+  .site-footer{background:#111;color:#fff;padding:55px 5% 25px 5%}
+  .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;max-width:1200px;margin:0 auto}
+  .footer-col{padding:0 35px}
+  .footer-middle{border-left:1px solid #333;border-right:1px solid #333}
+  .footer-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;color:#fff;margin-bottom:20px}
+  .explore-small{font-size:15px;font-weight:800;letter-spacing:5px}
+  .safari-big{font-size:32px;font-weight:900}
+  .safari-big span{color:#ff8c00}
+  .pearl-small{font-size:11px;font-weight:700;letter-spacing:2px;color:#999;margin-top:4px}
+  .footer-about{color:#ccc;font-size:13.5px;line-height:1.7;margin-bottom:20px}
+  .footer-social{display:flex;gap:10px}
+  .footer-social a{width:38px;height:38px;background:#2a2a2a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800}
+  .footer-social a:hover{background:#ff8c00}
+  .site-footer h4{font-size:12px;font-weight:800;letter-spacing:1.5px;margin-bottom:16px}
+  .footer-h4-space{margin-top:28px}
+  .site-footer ul{list-style:none}
+  .site-footer ul li{margin-bottom:9px}
+  .site-footer ul li a{color:#ccc;font-size:13px;text-decoration:none}
+  .site-footer ul li a:hover{color:#ff8c00}
+  .btn-book-now{display:inline-block;margin-top:10px;background:#2a2a2a;color:#fff;font-size:13px;font-weight:600;padding:12px 22px;border-radius:25px;text-decoration:none}
+  .btn-book-now:hover{background:#ff8c00}
+  .footer-bottom{border-top:1px solid #333;margin-top:35px;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#999;font-size:13px;max-width:1200px;margin-left:auto;margin-right:auto}
+  .footer-bottom a{color:#fff;text-decoration:none;margin:0 6px;font-weight:700}
+
+  @media(max-width:900px){
+    .header-inner{flex-wrap:wrap;justify-content:center;text-align:center}
+    .main-nav{flex-wrap:wrap;justify-content:center}
+    .contact-hero{height:260px}
+    .contact-hero-text h1{font-size:30px}
+    .contact-box{flex-direction:column}
+    .form-row{flex-direction:column}
+    .faq-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:40px}
+    .footer-col{padding:0}
+    .footer-middle{border:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-small">EXPLORE</span>
+      <span class="logo-main"><span class="black">SAFARI</span> <span class="orange">&amp; CITY</span></span>
+      <span class="logo-line"></span>
+      <span class="logo-sub">THE PEARL OF AFRICA</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="packages.html">Packages</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+    <div class="header-search">
+      <form action="#" onsubmit="return false;">
+        <input type="text" placeholder="Search safaris, gorillas, Nile..">
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="contact-hero">
+  <img src="images/van.jpg" alt="Contact Explore Safari & City">
+  <div class="contact-hero-text">
+    <h1>Contact <span>Us</span></h1>
+    <p>We reply within 1 hour on WhatsApp — Let's plan your Uganda trip today.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT BOX ===== -->
+<section class="contact-section">
+  <div class="contact-box">
+
+    <!-- LEFT: INFO -->
+    <div class="contact-left">
+      <span style="color:#ff8c00;font-weight:800;letter-spacing:3px;font-size:13px">GET IN TOUCH</span>
+      <h2>Talk To A Real <span>Ugandan Expert</span></h2>
+      <p>No robots. No waiting days. Talk directly to the team that will drive you, guide you and host you in Uganda.</p>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div><b>Our Office</b><span>Plot 12, Kampala Road, Kampala, Uganda</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div><b>+256 701 303 855</b><span><a href="tel:+256701303855">Call Now</a> • <a href="https://wa.me/256701303855">WhatsApp</a></span></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div><b>info@exploresafariandcity.com</b><span>For bookings & custom trips</span></div>
+      </div>
+
+      <a class="whatsapp-btn" href="https://wa.me/256701303855?text=Hello%20Explore%20Safari%20%26%20City!%20I%20want%20to%20plan%20a%20trip%20to%20Uganda." target="_blank">💬 Chat on WhatsApp Now</a>
+
+      <div class="contact-hours">
+        <b>🕐 Office Hours:</b><br>
+        Monday - Saturday: 7:00 AM - 9:00 PM<br>
+        Sunday: 9:00 AM - 6:00 PM<br>
+        Emergency on Safari: 24/7
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="contact-form-wrap">
+      <h3>Send Us A Message</h3>
+      <p>Fill this form — it will open WhatsApp with your details ready to send.</p>
+
+      <form class="contact-form" id="contactForm">
+        <label>Your Name *</label>
+        <input type="text" id="cName" placeholder="e.g. John Kato" required>
+
+        <div class="form-row">
+          <div>
+            <label>Email *</label>
+            <input type="email" id="cEmail" placeholder="you@email.com" required>
+          </div>
+          <div>
+            <label>Phone / WhatsApp *</label>
+            <input type="tel" id="cPhone" placeholder="+256 ..." required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label>Travel Date</label>
+            <input type="date" id="cDate">
+          </div>
+          <div>
+            <label>Interested In</label>
+            <select id="cPackage">
+              <option>Gorilla Trekking - Bwindi</option>
+              <option>Murchison Falls Safari</option>
+              <option>Queen Elizabeth Wildlife</option>
+              <option>Jinja Weekend Getaway</option>
+              <option>Cultural Tour - Fort Portal</option>
+              <option>Rwenzori Hiking</option>
+              <option>Wellness Retreat - Ssese</option>
+              <option>Camping - Kidepo Valley</option>
+              <option>Design My Own Tour</option>
+              <option>Just Asking A Question</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Your Message *</label>
+        <textarea id="cMessage" rows="4" placeholder="Hi, I want to visit Uganda on... I have 2 people, budget..." required></textarea>
+
+        <button type="submit" class="send-btn">Send Message →</button>
+        <p class="form-small">We reply fast on WhatsApp. No spam.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section class="map-section">
+  <iframe src="https://www.google.com/maps?q=Kampala,Uganda&output=embed" loading="lazy"></iframe>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Quick <span>Answers</span></h2>
+    <div class="faq-grid">
+      <div class="faq-card"><b>Do I need to pay now to book?</b><p>No. You confirm first, then we secure permits & hotel. You pay deposit only after you are happy with the plan.</p></div>
+      <div class="faq-card"><b>How fast do you reply?</b><p>Within 1 hour on WhatsApp (7am - 9pm). Email replies within 3 hours.</p></div>
+      <div class="faq-card"><b>Can you pick me from Entebbe Airport?</b><p>Yes! Free airport pickup for all safaris 3+ days. We will be waiting with your name board.</p></div>
+      <div class="faq-card"><b>Do you do custom trips?</b><p>Yes. Gorillas + Nile + Culture in one trip? Tell us your dates & budget and we build it for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="index.html" class="footer-logo">
+        <span class="explore-small">EXPLORE</span>
+        <span class="safari-big">SAFARI <span>&amp; CITY</span></span>
+        <span class="pearl-small">THE PEARL OF AFRICA</span>
+      </a>
+      <p class="footer-about">We are a local Ugandan tour company. Gorillas, Big 5, Nile, Culture & City tours — built by people who call Uganda home.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank">f</a>
+        <a href="https://instagram.com" target="_blank">◎</a>
+        <a href="https://tiktok.com" target="_blank">♪</a>
+        <a href="https://wa.me/256701303855" target="_blank">✆</a>
+        <a href="https://youtube.com" target="_blank">▶</a>
+      </div>
+    </div>
+    <div class="footer-col footer-middle">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="packages.html">Packages & Prices</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <h4 class="footer-h4-space">TOP PACKAGES</h4>
+      <ul>
+        <li><a href="packages.html">Gorilla Trekking - $1,450</a></li>
+        <li><a href="packages.html">Murchison Falls - $980</a></li>
+        <li><a href="packages.html">Jinja Getaway - $380</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>CONTACT US</h4>
+      <p style="color:#ccc;font-size:13.5px;line-height:1.7;margin-bottom:12px">📍 Plot 12, Kampala Road, Kampala, Uganda<br>📞 <b style="color:#fff">+256 701 303 855</b><br>✉️ info@exploresafariandcity.com<br>🕐 Open Daily 7:00 AM - 9:00 PM</p>
+      <a href="packages.html" class="btn-book-now">Book Your Safari →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Explore Safari & City. All Rights Reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+    <p>Made with ❤️ in Uganda</p>
+  </div>
+</footer>
+
+<script>
+  // CONTACT FORM -> WHATSAPP
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('cName').value;
+    const email = document.getElementById('cEmail').value;
+    const phone = document.getElementById('cPhone').value;
+    const date = document.getElementById('cDate').value;
+    const pkg = document.getElementById('cPackage').value;
+    const msg = document.getElementById('cMessage').value;
+
+    const text = "Hello Explore Safari & City!%0A%0AName: " + encodeURIComponent(name) +
+      "%0AEmail: " + encodeURIComponent(email) +
+      "%0APhone: " + encodeURIComponent(phone) +
+      "%0ADate: " + encodeURIComponent(date) +
+      "%0AInterested In: " + encodeURIComponent(pkg) +
+      "%0AMessage: " + encodeURIComponent(msg);
+
+    window.open("https://wa.me/256701303855?text=" + text, "_blank");
+  });
+</script>
+
+</body>
+</html>
