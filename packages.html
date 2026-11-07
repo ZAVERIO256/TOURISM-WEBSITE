@@ -79,6 +79,26 @@
     .packages-hero{height:calc(100vh - 140px);min-height:340px}
     .pkg-watermark{font-size:24px;white-space:normal;line-height:1.3}
   }
+  /* ===== FIX TESTIMONIALS ===== */
+  .testi-viewport{overflow:hidden !important;width:100% !important}
+  .testi-track{display:flex !important;gap:18px !important;transition:transform .6s ease !important}
+  .testi-card{flex:0 0 calc((100% - 36px) / 3) !important;max-width:calc((100% - 36px) / 3) !important;box-sizing:border-box !important;flex-shrink:0 !important}
+  @media(max-width:1100px){.testi-card{flex:0 0 calc((100% - 18px) / 2) !important;max-width:calc((100% - 18px) / 2) !important}}
+  @media(max-width:700px){.testi-card{flex:0 0 100% !important;max-width:100% !important}}
+  .testi-viewport{padding:0 !important;margin:0 !important} .testi-track{width:100% !important;margin:0 !important} .testi-card{min-width:0 !important;margin:0 !important;padding:28px 20px !important}
+  @media (max-width:1100px){ .testi-card{flex:0 0 calc((100% - 18px) / 2) !important;max-width:calc((100% - 18px) / 2) !important} }
+  @media (max-width:700px){ .testi-card{flex:0 0 100% !important;max-width:100% !important} }
+  /* FIX HERO SLIDER BUTTONS */
+  .packages-hero, .hero, .hero-slider, .pkg-hero{position:relative !important;overflow:hidden !important}
+.packages-hero .pkg-prev, .packages-hero .pkg-next{position:absolute !important;top:50% !important;transform:translateY(-50%) !important;z-index:10 !important;width:44px !important;height:44px !important;border-radius:50% !important;background:rgba(255,255,255,0.9) !important;color:#000 !important;font-size:22px !important;border:none !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important}
+.testi-slider-wrap{position:relative !important}
+.testi-arrow{position:absolute !important;top:50% !important;transform:translateY(-50%) !important;z-index:5 !important;width:44px !important;height:44px !important;border-radius:50% !important;border:none !important;cursor:pointer !important;display:flex !important;align-items:center !important;justify-content:center !important;font-size:22px !important}
+.testi-arrow.prev{left:0 !important;right:auto !important;background:#fff !important;color:#000 !important}
+.testi-arrow.next{right:0 !important;left:auto !important;background:#ff8c00 !important;color:#fff !important}
+.packages-hero .pkg-prev{left:16px !important;right:auto !important}
+.packages-hero .pkg-next{right:16px !important;left:auto !important}
+  .pkg-slide{display:none !important}.pkg-slide.active{display:block !important}.pkg-slide img{width:100% !important;height:100% !important;object-fit:cover !important;display:block !important}
+  .packages-hero button:not(.pkg-prev):not(.pkg-next){display:none !important}
 </style>
 </head>
 <body>
@@ -117,16 +137,17 @@
     <div class="pkg-slide"><img src="images/van.jpg" alt="Safari Van"></div>
     <div class="pkg-watermark">EXPERIENTIAL TOURS TO UGANDA</div>
   </div>
+  <button class="pkg-prev" aria-label="Previous">‹</button>
+  <button class="pkg-next" aria-label="Next">›</button>
 </section>
 
 <script>
   const pkgSlides = document.querySelectorAll('.pkg-slide');
   let pkgIndex = 0;
-  setInterval(() => {
-    pkgSlides[pkgIndex].classList.remove('active');
-    pkgIndex = (pkgIndex + 1) % pkgSlides.length;
-    pkgSlides[pkgIndex].classList.add('active');
-  }, 4000);
+  function showPkgSlide(n){ pkgIndex = (n + pkgSlides.length) % pkgSlides.length; pkgSlides.forEach((s,i)=> s.classList.toggle('active', i===pkgIndex)); }
+  document.querySelectorAll('.packages-hero button').forEach(b=>{ if(b.textContent.includes('‹')||b.textContent.includes('<')) b.onclick=()=>showPkgSlide(pkgIndex-1); if(b.textContent.includes('›')||b.textContent.includes('>')) b.onclick=()=>showPkgSlide(pkgIndex+1); });
+  setInterval(()=> showPkgSlide(pkgIndex+1), 5000);
+  showPkgSlide(0);
 </script>
 
 <!-- ===== SECTION 3: PACKAGES TABLE ===== -->
@@ -570,19 +591,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 5. TESTIMONIALS SLIDER - MUST BE OUTSIDE - THIS WAS MISSING
 let testiPos = 0;
+let testiTimer;
 function moveTesti(dir) {
   const track = document.getElementById('testiTrack');
   if (!track) return;
   const cards = track.children.length;
-  const visible = window.innerWidth <= 900 ? 1 : (window.innerWidth <= 1100 ? 2 : 3);
+  const visible = window.innerWidth <= 700 ? 1 : (window.innerWidth <= 1100 ? 2 : 3);
   const maxPos = cards - visible;
   testiPos += dir;
   if (testiPos < 0) testiPos = maxPos;
   if (testiPos > maxPos) testiPos = 0;
-  const cardWidth = track.children[0].offsetWidth + 18;
-  track.style.transform = 'translateX(' + (-testiPos * cardWidth) + 'px)';
+  const gap = 18;
+  const totalGap = gap * (cards - 1);
+  const cardW = (track.scrollWidth - totalGap) / cards;
+  const step = Math.round(cardW + gap);
+  track.style.transform = 'translateX(' + (-testiPos * step) + 'px)';
+  clearInterval(testiTimer);
+  testiTimer = setInterval(function(){ moveTesti(1); }, 4000);
 }
-setInterval(function() { moveTesti(1); }, 4000);
+testiTimer = setInterval(function(){ moveTesti(1); }, 4000);
 </script>
 <!-- ===== SECTION 8: FOOTER - LAST SECTION ===== -->
 <footer class="site-footer">
@@ -661,6 +688,5 @@ setInterval(function() { moveTesti(1); }, 4000);
 </footer>
 <!-- ===== END SECTION 8 - FOOTER ===== -->
 
-<script src="script.js"></script>
 </body>
 </html>
