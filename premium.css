@@ -1,0 +1,116 @@
+/* =========================================================
+   SAFARI & CITY TOURS — PREMIUM VISUAL POLISH
+   Presentation-only layer: keeps the existing page content,
+   image/video files, and section order intact.
+   ========================================================= */
+:root {
+  --brand-orange: #e87916;
+  --brand-orange-dark: #c85d08;
+  --brand-navy: #102b43;
+  --brand-ink: #18232d;
+  --brand-muted: #667482;
+  --brand-cream: #fffaf3;
+  --brand-line: #e8edf0;
+  --brand-shadow: 0 14px 38px rgba(16, 43, 67, .10);
+}
+html { scroll-behavior: smooth; }
+body {
+  color: var(--brand-ink);
+  background: #fff;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: .005em;
+}
+header, .site-header {
+  box-shadow: 0 5px 24px rgba(16, 43, 67, .075);
+  border-bottom: 1px solid rgba(16, 43, 67, .06);
+}
+.logo-main { letter-spacing: -.035em; }
+.logo-small, .logo-sub { letter-spacing: .22em; }
+nav a, .main-nav a { transition: color .2s ease; }
+nav a:hover, .main-nav a:hover { color: var(--brand-orange); }
+.hero, .slider, .packages-hero, .contact-hero { isolation: isolate; }
+.hero::after, .slider::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(7, 24, 39, .72) 0%, rgba(7, 24, 39, .38) 48%, rgba(7, 24, 39, .08) 100%);
+}
+.hero-text, .slider-text { z-index: 2; max-width: 660px; }
+.hero-text h1, .slider-text h1 {
+  font-weight: 850; letter-spacing: -.045em;
+  line-height: 1.04; text-wrap: balance;
+}
+.hero-text p, .slider-text p { max-width: 560px; line-height: 1.75; }
+.btn, .btn-orange, .book-btn, .booking-btn, .btn-book-now, .btn-book-safari, .btn-book-safari, .btn-popular {
+  border-radius: 999px;
+  font-weight: 750;
+  letter-spacing: .01em;
+  box-shadow: 0 7px 18px rgba(200, 93, 8, .18);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover, .btn-orange:hover, .book-btn:hover, .booking-btn:hover,
+.btn-book-now:hover, .btn-book-safari:hover, .btn-popular:hover {
+  transform: translateY(-2px); box-shadow: 0 11px 24px rgba(200, 93, 8, .24);
+}
+section { scroll-margin-top: 86px; }
+section h2, .premier h2, .packages-section h2 {
+  color: var(--brand-navy); letter-spacing: -.035em; font-weight: 850;
+}
+.section-sub { color: var(--brand-muted); line-height: 1.8; }
+.card, .dest-card, .article-card, .faq-card, .about-box, .contact-box,
+.booking-box, .contact-item {
+  border: 1px solid var(--brand-line);
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(16, 43, 67, .065);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.card:hover, .dest-card:hover, .article-card:hover, .about-box:hover {
+  transform: translateY(-5px); box-shadow: var(--brand-shadow);
+}
+.card img, .dest-card img, .article-card img { transition: transform .45s ease; }
+.card:hover img, .dest-card:hover img, .article-card:hover img { transform: scale(1.035); }
+.cat-btn {
+  border-radius: 999px !important;
+  transition: all .2s ease;
+}
+.cat-btn.active, .cat-btn:hover { box-shadow: 0 5px 15px rgba(200, 93, 8, .15); }
+input, select, textarea {
+  border-radius: 10px;
+  border-color: #dce4e9;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--brand-orange) !important;
+  box-shadow: 0 0 0 3px rgba(232, 121, 22, .13);
+}
+.booking-section, .contact-section { background: var(--brand-cream); }
+.booking-box, .contact-box, .contact-form-wrap {
+  border-radius: 20px; box-shadow: var(--brand-shadow);
+}
+footer, .site-footer-new {
+  background: linear-gradient(135deg, #0d263b, #163c56);
+  color: rgba(255,255,255,.88);
+}
+footer a, .site-footer-new a { transition: color .2s ease; }
+footer a:hover, .site-footer-new a:hover { color: #ffb35c; }
+.footer-bottom, .footer-bottom-new { border-top-color: rgba(255,255,255,.16); }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid rgba(232, 121, 22, .45); outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+@media (max-width: 768px) {
+  .hero, .slider { height: 460px; }
+  .hero-text, .slider-text { left: 7%; right: 7%; max-width: none; }
+  .hero-text h1, .slider-text h1 { font-size: clamp(31px, 8vw, 43px); }
+  .hero-text p, .slider-text p { font-size: 15px; }
+  section { padding-left: 6%; padding-right: 6%; }
+  .card, .dest-card, .article-card, .faq-card, .about-box { border-radius: 15px; }
+}
+@media (max-width: 480px) {
+  .hero, .slider { height: 410px; }
+  .hero-text h1, .slider-text h1 { font-size: 32px; }
+  .hero-text p, .slider-text p { font-size: 14px; }
+  .btn, .btn-orange, .book-btn, .booking-btn { min-height: 42px; }
+}
